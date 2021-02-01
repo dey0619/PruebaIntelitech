@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model PruebaIntelitech.Models.Empleados
+
+<div class="form">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="div_Text"><h4>Intelitech</h4></div>
+        <br />
+        <br />
+        @Html.LabelFor(x => x.Email, new { @class = "" })
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+        <br />
+
+        @*@Html.LabelFor(x => x.Password)
+
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })*@
+        <br />
+
+        <button class="btn btn-primary" type="submit">
+            Iniciar sesión
+        </button>
+
+
+        <br />
+
+    }
+</div>
+
+@section scripts {
+
+    <script>
+        $('#verPassword').on('mousedown', function () {
+            $('#Password').attr("type", "text");
+        });
+
+        $('#verPassword').on('mouseup mouseleave', function () {
+            $('#Password').attr("type", "password");
+        });
+    </script>
+}
